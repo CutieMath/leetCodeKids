@@ -3,6 +3,8 @@
 }
 
 body {
+    font-family: 'Gluten', cursive;
+    color: white;
     margin:0;
     padding:0;
     display: flex;
@@ -19,75 +21,8 @@ body {
     border-radius: 50%;
 }
 
-.spinner {
-    width: 500px;
-    height: 500px;
-    background-color: pink;
-    border-radius: 50%;
-    border: 15px solid #A999CF;
-    position: relative;
-    overflow: hidden;
+#spinner {
     transition: 5s;
-}
-
-
-.spinner div {
-    height: 50%;
-    width: 200px;
-    position: absolute;
-    clip-path: polygon(100% 0, 50% 100%, 0 0);
-    transform: translateX(-50%);
-    transform-origin:bottom;
-    text-align: center;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family:sans-serif;
-    color: white;
-    left:135px;
-}
-
-
-.spinner .one{
-    background-color:#FFDFD3;
-    left: 50%;
-}
-
-.spinner .two{
-    background-color: #E0BBE4;
-    transform: rotate(45deg);
-}
-
-.spinner .three{
-    background-color: #957DAD;
-    transform: rotate(90deg);
-}
-
-.spinner .four{
-    background-color: #D291BC;
-    transform: rotate(135deg);
-}
-
-.spinner .five{
-    background-color: #FEC8D8;
-    transform: rotate(180deg);
-}
-
-.spinner .six{
-    background-color: #FFDFD3;
-    transform: rotate(225deg);
-}
-
-.spinner .seven{
-    background-color: #E0BBE4;
-    transform: rotate(270deg);
-}
-
-.spinner .eight{
-    background-color: #957DAD;
-    transform: rotate(315deg);
 }
 
 
@@ -96,6 +31,7 @@ body {
     top:8rem;
     color: white;
     font-size: 6rem;
+    z-index: 20;
 }
 
 .add-shadow {
@@ -103,8 +39,8 @@ body {
 }
 
 
-
 #start {
+    font-family: 'Gluten', cursive;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,7 +52,6 @@ body {
     color: #957DAD;
     width: 80px;
     height: 80px;
-    font-family:sans-serif;
     border-radius: 50%;
     cursor: pointer;
     outline: none;

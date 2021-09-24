@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>LeetCode kids</title>
 </head>
@@ -13,18 +17,11 @@
     <button id="start">Game!</button>
     <span class="arrow"><i class="add-shadow fas fa-arrow-down"></i></span>
     <div class="container">
-        <div class="spinner">
-            <div class="one">Komo</div>
-            <div class="two">Michael</div>
-            <div class="three">Eve</div>
-            <div class="four">Tommy</div>
-            <div class="five">Yuxin</div>
-            <div class="six">Komo</div>
-            <div class="seven">Michael</div>
-            <div class="eight">Tommy</div>
-        </div>
+        <div id="spinner"></div>
     </div>
 
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v6.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
