@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    padding:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("image/bg.jpg");
+    background-size: cover;
+}
