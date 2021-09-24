@@ -13,3 +13,108 @@ body {
     background-image: url("image/bg.jpg");
     background-size: cover;
 }
+
+.container {
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    border-radius: 50%;
+    border: 15px solid #A999CF;
+    position: relative;
+    overflow: hidden;
+    transition: 5s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.container div {
+    height: 50%;
+    width: 200px;
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    transform: translateX(-50%);
+    transform-origin:bottom;
+    text-align: center;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family:sans-serif;
+    color: white;
+    left:135px;
+}
+
+
+.container .one{
+    background-color:#FFDFD3;
+    left: 50%;
+}
+
+.container .two{
+    background-color: #E0BBE4;
+    transform: rotate(45deg);
+}
+
+.container .three{
+    background-color: #957DAD;
+    transform: rotate(90deg);
+}
+
+.container .four{
+    background-color: #D291BC;
+    transform: rotate(135deg);
+}
+
+.container .five{
+    background-color: #FEC8D8;
+    transform: rotate(180deg);
+}
+
+.container .six{
+    background-color: #FFDFD3;
+    transform: rotate(225deg);
+}
+
+.container .seven{
+    background-color: #E0BBE4;
+    transform: rotate(270deg);
+}
+
+.container .eight{
+    background-color: #957DAD;
+    transform: rotate(315deg);
+}
+
+
+.arrow {
+    position: absolute;
+    top:8rem;
+    color: white;
+    font-size: 6rem;
+}
+
+.add-shadow {
+    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
+}
+
+
+
+#spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    font-weight: bold;
+    font-size:20px;
+    color: #957DAD;
+    width: 80px;
+    height: 80px;
+    font-family:sans-serif;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
