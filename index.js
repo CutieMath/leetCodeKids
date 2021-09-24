@@ -1,13 +1,14 @@
+// Spin the wheel
 let spinner = document.querySelector("#spinner");
 let btn = document.getElementById("start");
 let number = Math.ceil(Math.random() * 1000);
-
 btn.onclick = function(){
     spinner.style.transform = "rotate(" + number + "deg)";
     number += Math.ceil(Math.random() * 1000);
 }
 
 
+// D3 Pie Chart
 // set the dimensions and margins of the graph
 const width = 600,
     height = 600,
