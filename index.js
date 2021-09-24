@@ -29,7 +29,7 @@ const data = {Komo: 25, Tommy: 25, Michael:25, Eve:25, Yuxin:25}
 
 // set the color scale
 const color = d3.scaleOrdinal()
-    .range(["#E0BBE4", "#957DAD", "#D291BC", "#FEC8D8", "#FFDFD3"])
+    .range(["#FFDFD3", "#E0BBE4", "#957DAD", "#D291BC", "#FEC8D8"])
 
 // Compute the position of each group on the pie:
 const pie = d3.pie()
@@ -62,4 +62,4 @@ svg
   .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
   .style("text-anchor", "middle")
   .style("font-size", 25)
-  .style("font-color", "white")
+  .style("fill", "white")
