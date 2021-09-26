@@ -1,10 +1,10 @@
 // Spin the wheel
 let spinner = document.querySelector("#spinner");
 let btn = document.getElementById("start");
-let number = Math.ceil(Math.random() * 1000);
+let number = Math.ceil(Math.random() * 3000);
 btn.onclick = function(){
     spinner.style.transform = "rotate(" + number + "deg)";
-    number += Math.ceil(Math.random() * 1000);
+    number += Math.ceil(Math.random() * 3000);
 }
 
 
@@ -26,7 +26,7 @@ const svg = d3.select("#spinner")
     .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
 // Create dummy data
-const data = {Komo: 25, Tommy: 25, Michael:25, Eve:25, Yuxin:25}
+const data = {Komo: 20, Tommy: 20, Michael:20, Eve:20, Yuxin:20}
 
 // set the color scale
 const color = d3.scaleOrdinal()
