@@ -6,7 +6,8 @@ The person who's picked by the spinner is going to present their coding solution
 ### Note
 Ongoing optimisation...  
 Next up:  
-- Allow dynamically changing/adding names  
+- only create the pie once, so we can use opac background
+- add method to remove the name once it's been deleted
 - Popup to show the chosen one
   
 ### Credits  
