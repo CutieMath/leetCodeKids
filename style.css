@@ -25,6 +25,28 @@ body {
     transition: 5s;
 }
 
+.user-input {
+    text-align: center; 
+    background: transparent;
+    font-family: 'Gluten', cursive;
+    position: absolute;
+    top:2rem;
+    color: #FEC8D8;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FEC8D8;
+  }
+
+.user-input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 
 .arrow {
     position: absolute;
