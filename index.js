@@ -12,7 +12,9 @@ btn.onclick = function(){
 
 // =============
 // D3 Pie chart. 
-// Doc: https://www.d3-graph-gallery.com/graph/pie_annotation.html
+// Docs: 
+// https://www.d3-graph-gallery.com/graph/pie_annotation.html
+// https://www.d3-graph-gallery.com/graph/pie_changeData.html
 // ========================
 
 
@@ -56,56 +58,86 @@ d3.select("body")
       }
     });
 
-  // set the color scale
-  const color = d3.scaleOrdinal()
-      .range(["#FFDFD3", "#E0BBE4", "#957DAD", "#D291BC", "#FEC8D8"])
+// set the color scale
+const color = d3.scaleOrdinal()
+    .range(["#FFDFD3", "#E0BBE4", "#957DAD", "#D291BC", "#FEC8D8"])
 
 
-  var arc = d3.arc()
-    .innerRadius(0)
-    .outerRadius(radius)
+var arc = d3.arc()
+  .innerRadius(0)
+  .outerRadius(radius)
 
 
-  function update(data) {
+function update(data) {
 
-    // Compute the position of each group on the pie:
-    var pie = d3.pie()
-      .value(function(d) {return d.value; })
-      .sort(function(a, b) { console.log(a) ; return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
-    var data_ready = pie(d3.entries(data))
-  
-    // map to data
-    var u = svg.selectAll("path")
-      .data(data_ready)
-  
-    // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-    u
-      .enter()
-      .append('path')
-      .each(function(d){
-        local.set(this, d)
-      })
-      .merge(u)
-      .transition()
-      .duration(1000)
-      .attrTween('d', function(d) {
-        var i = d3.interpolate(local.get(this), d);
-        local.set(this, i(0));
-        return function(t) {
-          return arc(i(t));
-        };
-      })
-      .attr('fill', function(d){ return(color(d.data.key)) })
-      .attr("stroke", "white")
-      .style("stroke-width", "2px")
-      .style("opacity", 0.7)
-  
-    // remove the group that is not present anymore
-    u
-      .exit()
-      .remove()
-  
-  }
+  // Compute the position of each group on the pie:
+  var pie = d3.pie()
+    .value(function(d) {return d.value; })
+    .sort(function(a, b) { return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
+  var data_ready = pie(d3.entries(data))
+
+  // map to data
+  var u = svg.selectAll("path")
+    .data(data_ready)
+
+  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+  u
+    .enter()
+    .append('path')
+    .each(function(d){
+      local.set(this, d)
+    })
+    .merge(u)
+    .transition()
+    .duration(1000)
+    .attrTween('d', function(d) {
+      var i = d3.interpolate(local.get(this), d);
+      local.set(this, i(0));
+      return function(t) {
+        return arc(i(t));
+      };
+    })
+    .attr('fill', function(d){ return(color(d.data.key)) })
+    .attr("stroke", "white")
+    .style("stroke-width", "5px")
+    .style("opacity", 0.7)    
+
+};
 
 
-  update(data1)
+function setNames(){
+  // Compute the position of each group on the pie:
+  var pie = d3.pie()
+  .value(function(d) {return d.value; })
+  var data_ready = pie(d3.entries(data))
+  // Now I know that group A goes from 0 degrees to x degrees and so on.
+
+  // shape helper to build arcs:
+  var arcGenerator = d3.arc()
+  .innerRadius(0)
+  .outerRadius(radius)
+
+  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+  svg
+  .selectAll('mySlices')
+  .data(data_ready)
+  .enter()
+  .append('path')
+    .attr('d', arcGenerator)
+    .attr('fill', function(d){ return(color(d.data.key)) })
+    .attr("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("opacity", 0)
+
+  // Now add the annotation. Use the centroid method to get the best coordinates
+  svg
+  .selectAll('mySlices')
+  .data(data_ready)
+  .enter()
+  .append('text')
+  .text(function(d){ return d.data.key})
+  .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+  .style("text-anchor", "middle")
+  .style("font-size", 25)
+  .style("fill", "white")
+}

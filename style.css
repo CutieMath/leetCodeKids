@@ -25,7 +25,32 @@ body {
     transition: 5s;
 }
 
-.user-input {
+
+#name-submit {
+    font-family: 'Gluten', cursive;
+    background-color: transparent;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    font-weight: bold;
+    font-size:30px;
+    color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#name-submit:hover {
+    transition: 0.5s;
+    background-color: #FEC8D8;
+    color: #957DAD;
+}
+
+.user-input-tex-area {
     border: none;
     text-align: center; 
     background: transparent;
@@ -43,7 +68,7 @@ body {
     color: #FEC8D8;
   }
 
-.user-input:focus {
+.user-input-tex-area:focus {
     border: none;
     outline: none;
     box-shadow: none;
