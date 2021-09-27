@@ -56,7 +56,13 @@ d3.select("body")
         // call the function to create the pie
         update(data);
       }
+
+      if(d3.event.keyCode == 13){
+        setNames();
+      }
+
     });
+
 
 // set the color scale
 const color = d3.scaleOrdinal()
