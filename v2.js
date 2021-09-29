@@ -17,8 +17,8 @@ btn.onclick = function () {
 
 
 // set the dimensions and margins of the graph
-const width = 600,
-  height = 600,
+const width = 550,
+  height = 550,
   margin = 20;
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.

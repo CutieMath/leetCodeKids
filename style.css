@@ -53,7 +53,7 @@ body {
 .user-input-tex-area {
     border: none;
     text-align: center; 
-    background: transparent;
+    background-color: #957DAD;
     font-family: 'Gluten', cursive;
     position: absolute;
     top:2rem;
@@ -117,4 +117,11 @@ body {
 #start:active {
     box-shadow: none;
     transform: translate(-50%, -30%);
+}
+
+.manual {
+    position: absolute;
+    top: 80%;
+    left: 8%;
+    font-size: large;
 }
