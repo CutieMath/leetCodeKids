@@ -48,7 +48,16 @@ const svg = d3.select("#spinner")
 
 d3.select("body")
   .on("keydown", function (e) {
-    // add slices
+    // Enter key
+    if (e.keyCode == 13){
+      // prevent default behavior
+      e.preventDefault();
+      // Spin the pie
+      spinner.style.transform = "rotate(" + number + "deg)";
+      number += Math.ceil(Math.random() * 5000);
+    }
+
+    // Comma: add slices
     if (e.keyCode == 188) {
       var inputString = d3.select("#user-input").node().value;
       var inputArr = inputString.split(',');
@@ -57,7 +66,7 @@ d3.select("body")
       makePie(data);
     }
 
-    // remove slices
+    // Back space: remove slices
     if (e.keyCode == 8) {
       var inputStringTwo = d3.select("#user-input").node().value;
       var inputArrTwo = inputStringTwo.split(',');
