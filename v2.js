@@ -32,6 +32,7 @@ const color = d3.scaleOrdinal()
 
 // get customer input as pie element
 var data = [];
+var data_left = [];
 const portion = 10;
 
 const pie = d3.pie()
@@ -48,6 +49,7 @@ const svg = d3.select("#spinner")
 
 d3.select("body")
   .on("keydown", function (e) {
+    // add slices
     if (e.keyCode == 188) {
       var inputString = d3.select("#user-input").node().value;
       var inputArr = inputString.split(',');
@@ -55,14 +57,26 @@ d3.select("body")
       data[currName] = 10;
       makePie(data);
     }
+
+    // remove slices
+    if (e.keyCode == 8) {
+      var inputString = d3.select("#user-input").node().value;
+      var inputArr = inputString.split(',');
+      console.log(inputArr);
+      data_left = [];
+      for (let i = 0; i < inputArr.length; i++) {
+        data_left[inputArr[i]] = 10;
+      }
+      makePie(data_left);
+    }
   });
 
 
 // Function to create the pie
 function makePie(data) {
   // Compute the position of each group on the pie:
+  // group A goes from 0 degrees to x degrees and so on.
   const data_ready = pie(Object.entries(data))
-  // Now I know that group A goes from 0 degrees to x degrees and so on.
 
   // shape helper to build arcs:
   const arcGenerator = d3.arc()
