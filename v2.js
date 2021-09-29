@@ -32,7 +32,6 @@ const color = d3.scaleOrdinal()
 
 // get customer input as pie element
 var data = [];
-var data_left = [];
 const portion = 10;
 
 const pie = d3.pie()
@@ -60,14 +59,18 @@ d3.select("body")
 
     // remove slices
     if (e.keyCode == 8) {
-      var inputString = d3.select("#user-input").node().value;
-      var inputArr = inputString.split(',');
-      console.log(inputArr);
-      data_left = [];
-      for (let i = 0; i < inputArr.length; i++) {
-        data_left[inputArr[i]] = 10;
-      }
-      makePie(data_left);
+      var inputStringTwo = d3.select("#user-input").node().value;
+      var inputArrTwo = inputStringTwo.split(',');
+      // filter the removed names
+      const filtered = Object.keys(data)
+      .filter(key => inputArrTwo.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = data[key];
+        return obj;
+      }, {});
+      // assign data to the new input to make the pie
+      data = filtered;
+      makePie(data);
     }
   });
 
